@@ -6,5 +6,12 @@
         <p>&copy; {{date('Y')}} </p>
         <p class="mb-1">Album example is &copy; Bootstrap, but please download and customize it for yourself!</p>
         <p class="mb-0">New to Bootstrap? <a href="/">Visit the homepage</a> or read our <a href="/docs/5.1/getting-started/introduction/">getting started guide</a>.</p>
+
+{{--        Вывод рубрик--}}
+        <ul>
+            @foreach($rubrics as $rubric)
+                <li><a href="#">{{$rubric->title}}</a></li>
+            @endforeach
+        </ul>
     </div>
 </footer>

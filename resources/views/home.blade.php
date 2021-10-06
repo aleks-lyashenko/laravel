@@ -51,8 +51,13 @@
                 </div>
 
                 @endforeach
+
+            </div>
+            <div class="col-12">
+                {{$posts->onEachSide(2)->links()}}
             </div>
         </div>
+
     </div>
 
 @endsection

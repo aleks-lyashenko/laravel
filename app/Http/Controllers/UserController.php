@@ -20,13 +20,22 @@ class UserController extends Controller
             'name' => 'required',
             'email' => 'required|email|unique:users',
             'password' => 'required|confirmed',
+            'avatar' => 'nullable|image',
         ]);
+
+        //Проверка на то была ли картинка загружена
+        if ($request->hasFile('avatar')) {
+            $folder = date('Y-m-d');
+            //сохранить изображение в папку с именем Год-месяц-день
+            $avatar = $request->file('avatar')->store("images/{$folder}");
+        }
 
         //сохранение данных в БД - в БД должен быть сохранен хэш пароля, а не он сам
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
+            'avatar' => $avatar ?? null,
         ]);
 
         //Флеш-сообщение об успешной регистрации

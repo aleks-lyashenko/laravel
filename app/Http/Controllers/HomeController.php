@@ -77,23 +77,24 @@ class HomeController extends Controller
 
 //            dump(Cache::get('key'));
 
-            Cache::put('key', 'value', 120);
+//            Cache::put('key', 'value', 120);
             //Получить и удалить данные
 //            dump(Cache::pull('key'));
 
             //Полное удаление данных из кэша
-            Cache::flush();
+//            Cache::flush();
 
             //Если данные в кэше есть, они берутся оттуда, если нет - загружаются из базы данных
-            if (Cache::has('posts')) {
-                $posts = Cache::get('posts');
-            } else {
-                $posts = Post::orderBy('id', 'desc')->get();
-                Cache::put('posts', $posts);
-            }
-
-            //Удаление данных из кэша
-
+//            if (Cache::has('posts')) {
+//                $posts = Cache::get('posts');
+//            } else {
+//                $posts = Post::orderBy('id', 'desc')->get();
+//                Cache::put('posts', $posts);
+//            }
+            //получить список постов
+//            $posts = Post::orderBy('id', 'desc')->get();
+            //получить список постов с пагинацией
+            $posts = Post::orderBy('id', 'desc')->paginate(3);
         }
 
 
