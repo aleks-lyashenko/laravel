@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Models\Rubric;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Pagination\Paginator;
 
@@ -30,6 +31,7 @@ class AppServiceProvider extends ServiceProvider
 
         DB::listen(function ($query) {
 //            dump($query->sql);
+            Log::info($query->sql);
         });
 
         view()->composer('layouts/footer', function ($view) {

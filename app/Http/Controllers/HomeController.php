@@ -94,7 +94,7 @@ class HomeController extends Controller
             //получить список постов
 //            $posts = Post::orderBy('id', 'desc')->get();
             //получить список постов с пагинацией
-            $posts = Post::orderBy('id', 'desc')->paginate(3);
+            $posts = Post::orderBy('created_at', 'desc')->paginate(3);
         }
 
 
