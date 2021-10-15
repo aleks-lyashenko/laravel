@@ -25,7 +25,7 @@ use App\Http\Controllers\Admin\MainController;
 use App\Http\Controllers\Test\TestController;
 use App\Http\Controllers\PostController;
 
-
+//Указываем какой контроллер подключить
 Route::get('/', [HomeController::class,'index'])->name('home');
 
 //Показывает форму
